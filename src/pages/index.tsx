@@ -1,5 +1,11 @@
 import { AppLayout, Container } from "@/layouts";
-import { Hero, Services, Work, WhyChooseUs } from "@/components/home";
+import {
+  Hero,
+  Services,
+  Work,
+  WhyChooseUs,
+  PartnersAndClients,
+} from "@/components/home";
 import { CollaborateWithUs } from "@/components/partials";
 
 export default function Home() {
@@ -9,6 +15,7 @@ export default function Home() {
       <Services />
       <Work />
       <WhyChooseUs />
+      <PartnersAndClients />
       <CollaborateWithUs />
     </AppLayout>
   );

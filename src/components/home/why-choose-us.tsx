@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "@/layouts";
 import ChooseUsCard from "./choose-us-card";
-import { partners } from "@/static/data";
+import { reasonList } from "@/static/data";
 
 export default function WhyChooseUs() {
   return (
@@ -13,15 +13,8 @@ export default function WhyChooseUs() {
           </h1>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <ChooseUsCard />
-            <ChooseUsCard />
-            <ChooseUsCard />
-            <ChooseUsCard />
-          </div>
-
-          <div className="flex flex-wrap items-center justify-between gap-6">
-            {partners.map((partner) => (
-              <img src={partner} alt="Logo" />
+            {reasonList.map((item) => (
+              <ChooseUsCard key={item.id} {...item} />
             ))}
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "@/layouts";
 import { RightArrow } from "../icons";
+import Link from "next/link";
 
 export default function CollaborateWithUs() {
   return (
@@ -18,7 +19,9 @@ export default function CollaborateWithUs() {
               realize your idea
             </p>
             <button className="group mx-auto flex w-max items-center gap-2 border-b border-dim-black  py-2 transition-all duration-100 md:mx-0">
-              <span className="font-semibold">Let's Talk Now</span>{" "}
+              <Link href={"/contact"}>
+                <span className="font-semibold">Let's Talk Now</span>{" "}
+              </Link>
               <span className="transition-all duration-100 group-hover:translate-x-1">
                 <RightArrow color="#0C0E12" />
               </span>
