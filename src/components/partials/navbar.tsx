@@ -17,7 +17,9 @@ export default function Navbar() {
                 </p>
               </div>
             </Link>
+          </div>
 
+          <div className="flex items-center gap-6">
             <ul className="hidden items-center gap-10 md:flex">
               <li>
                 <Link href={"/"}>Home</Link>
@@ -29,9 +31,6 @@ export default function Navbar() {
                 <Link href={"/"}>Work</Link>
               </li>
             </ul>
-          </div>
-
-          <div className="flex items-center">
             <button className="group hidden items-center gap-2 rounded-3xl border border-primary px-4 py-2 text-primary transition-all duration-100 hover:bg-primary hover:text-black md:flex">
               <Link href={"/contact"}>
                 <span className="font-semibold">Get in Touch</span>
