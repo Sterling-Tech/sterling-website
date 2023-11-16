@@ -5,7 +5,7 @@ import { RightArrow } from "../icons";
 
 export default function Navbar() {
   return (
-    <nav className="fixed w-full bg-dim-black py-6 text-white">
+    <nav className="fixed z-30 w-full bg-dim-black py-6 text-white">
       <Container>
         <div className="flex items-center justify-between">
           <div className="flex gap-10">

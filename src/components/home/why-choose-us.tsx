@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "@/layouts";
 import ChooseUsCard from "./choose-us-card";
 import { reasonList } from "@/static/data";
+import { AnimateY } from "../partials";
 
 export default function WhyChooseUs() {
   return (
@@ -14,7 +15,9 @@ export default function WhyChooseUs() {
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {reasonList.map((item) => (
-              <ChooseUsCard key={item.id} {...item} />
+              <AnimateY staggerAmount={0.35 + item.stagger}>
+                <ChooseUsCard key={item.id} {...item} />
+              </AnimateY>
             ))}
           </div>
         </div>

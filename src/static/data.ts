@@ -68,10 +68,12 @@ export const reasonList = [
     id: 1,
     title: "Expertise that Matters",
     body: "Our team comprises experienced technologists, engineers, and innovators who have been at the forefront of technological advancements for over a decade",
+    stagger: 0.1,
   },
   {
     id: 2,
     title: "Tailored to Your Needs",
     body: "We pride ourself on customizing tech solutions to meet your unique requirements. We work closely with you to find the perfect fit for your business.",
+    stagger: 0.2,
   },
 ];

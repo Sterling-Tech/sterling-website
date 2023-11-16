@@ -1,7 +1,8 @@
 import React from "react";
+import Link from "next/link";
 import { Container } from "@/layouts";
 import { serviceList } from "@/static/data";
-import { ServiceCard } from "../partials";
+import { ServiceCard, AnimateY, CTAButton } from "../partials";
 
 export default function Services() {
   return (
@@ -18,8 +19,16 @@ export default function Services() {
 
         <div className="mt-20 grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2">
           {serviceList.slice(0, 4).map((item) => (
-            <ServiceCard key={item.id} {...item} />
+            <AnimateY staggerAmount={0.35}>
+              <ServiceCard key={item.id} {...item} />
+            </AnimateY>
           ))}
+        </div>
+
+        <div className="mx-auto mt-20 w-max">
+          <Link href={"/services"}>
+            <CTAButton title="See More" />
+          </Link>
         </div>
       </Container>
     </section>

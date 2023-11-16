@@ -13,7 +13,7 @@ export default function PartnersAndClients() {
 
           <div className="flex flex-wrap items-center justify-between gap-6">
             {partners.map((partner) => (
-              <img src={partner} alt="Logo" />
+              <img key={partner} src={partner} alt="Logo" />
             ))}
           </div>
         </div>
