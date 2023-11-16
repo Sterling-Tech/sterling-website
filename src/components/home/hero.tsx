@@ -5,7 +5,7 @@ import { CTAButton } from "../partials";
 export default function Hero() {
   return (
     <section>
-      <div className="bg-dim-black pt-[90px]  text-white md:pb-[110px]">
+      <div className="bg-dim-black pb-20 pt-[90px]  text-white md:pb-[110px]">
         <div className="mx-auto px-6 sm:max-w-2xl md:max-w-3xl lg:max-w-[1280px] lg:px-0">
           <div className="space-y-6 pt-20 md:min-h-screen">
             <h2 className="w-[327px] text-sm leading-[150%] md:w-[411px] md:text-xl">
