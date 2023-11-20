@@ -7,8 +7,8 @@ export default function ContactForm() {
     <div className="py-20">
       <Container>
         <div className="space-y-16">
-          <h1 className="md:text-heading-two text-heading-three font-bold">
-            Let us you help realize the ideas you have in mind
+          <h1 className="text-heading-three font-bold md:text-heading-two">
+            Let us help you help realize the ideas you have in mind
           </h1>
           <form className="flex flex-col gap-4 md:gap-10">
             <div className="grid grid-cols-1 gap-x-5 gap-y-14 md:grid-cols-2">

@@ -4,10 +4,10 @@ import { AnimateX } from "../partials";
 
 export default function Work() {
   return (
-    <section className=" py-20">
+    <section id="work" className=" py-20">
       <Container>
         <div className="space-y-6">
-          <h1 className="md:text-heading-two text-heading-three font-bold">
+          <h1 className="text-heading-three font-bold md:text-heading-two">
             Our Work
           </h1>
           <p className="leading-[150%] text-slate-600 md:w-[664px] md:text-2xl">
@@ -26,9 +26,12 @@ export default function Work() {
                   Smart Power
                 </h3>
                 <p className="text-sm leading-[140%] text-slate-700 md:w-[90%] md:text-base">
-                  This project will discuss a logo from Sunnyday at Teamup where
-                  the process of making this logo is very interesting from
-                  determining the moodboard to the coloring design.
+                  SmartPower is a complete Billing and Utility Management
+                  Platform for Utilities with full support for various billing
+                  methodologies and in particular the NERC Estimated Billing
+                  Methodology for the Nigerian Electricity Industry, in addition
+                  to other standard utility management and customer support
+                  processes.
                 </p>
                 <div className="flex gap-x-4">
                   <span className="rounded-3xl border border-dim-black px-2 py-2 text-sm text-dim-black md:px-3 md:text-base">
@@ -47,16 +50,16 @@ export default function Work() {
               <div className="space-y-4">
                 <h3 className="text-2xl font-semibold md:text-4xl">QuikPay</h3>
                 <p className="text-sm leading-[140%] text-slate-700 md:w-[90%] md:text-base">
-                  This project will discuss a logo from Sunnyday at Teamup where
-                  the process of making this logo is very interesting from
-                  determining the moodboard to the coloring design.
+                  QuikPay is a vending platform built for electricity
+                  distributors, in which customers interface with to purchase
+                  electriity units.
                 </p>
                 <div className="flex gap-x-4">
                   <span className="rounded-3xl border border-dim-black px-2 py-2 text-sm text-dim-black md:px-3 md:text-base">
                     Report Generation
                   </span>
                   <span className="rounded-3xl border border-dim-black px-2 py-2 text-sm text-dim-black md:px-3 md:text-base">
-                    Payment Collection
+                    Product Vending
                   </span>
                 </div>
               </div>
@@ -75,9 +78,10 @@ export default function Work() {
               <div className="space-y-4">
                 <h3 className="text-2xl font-semibold md:text-4xl">QuikCash</h3>
                 <p className="text-sm leading-[140%] text-slate-700 md:w-[90%] md:text-base">
-                  This project will discuss a logo from Sunnyday at Teamup where
-                  the process of making this logo is very interesting from
-                  determining the moodboard to the coloring design.
+                  QuikCash is a complete vendor management solution built for
+                  eletricity distributors where each distributor can easily
+                  access information pertaining to all vendors attached to their
+                  system.
                 </p>
                 <div className="flex gap-x-4">
                   <span className="rounded-3xl border border-dim-black px-2 py-2 text-sm text-dim-black md:px-3 md:text-base">

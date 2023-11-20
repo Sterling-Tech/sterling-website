@@ -28,7 +28,7 @@ export default function Navbar() {
                 <Link href={"/services"}>Services</Link>
               </li>
               <li>
-                <Link href={"/"}>Work</Link>
+                <a href={"#work"}>Work</a>
               </li>
             </ul>
             <button className="group hidden items-center gap-2 rounded-3xl border border-primary px-4 py-2 text-primary transition-all duration-100 hover:bg-primary hover:text-black md:flex">
