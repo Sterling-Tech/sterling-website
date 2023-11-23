@@ -4,5 +4,14 @@ import CardIcon from "./card-icon";
 import Facebook from "./facebook";
 import LinkedIn from "./linkedin";
 import Twitter from "./twitter";
+import LoadingSpinner from "./loading";
 
-export { RightArrow, RightArrowCTA, CardIcon, Facebook, LinkedIn, Twitter };
+export {
+  RightArrow,
+  RightArrowCTA,
+  CardIcon,
+  Facebook,
+  LinkedIn,
+  Twitter,
+  LoadingSpinner,
+};

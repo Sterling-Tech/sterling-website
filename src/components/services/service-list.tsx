@@ -9,7 +9,7 @@ export default function ServiceList() {
       <Container>
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2">
           {serviceList.map((item) => (
-            <AnimateY staggerAmount={0.35}>
+            <AnimateY key={item.id} staggerAmount={0.35}>
               <ServiceCard key={item.id} {...item} />
             </AnimateY>
           ))}
