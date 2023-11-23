@@ -2,9 +2,18 @@ import React, { useState, FormEvent } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { Container } from "@/layouts";
 import { toast } from "sonner";
-import axios from "axios";
 import { RightArrowCTA } from "../icons";
 import { LoadingSpinner } from "../icons";
+import { sanityClient } from "@/config";
+
+interface IContactInfo {
+  _type: string;
+  full_name: string;
+  email: string;
+  phone: string;
+  message: string;
+  company_name: string;
+}
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -13,28 +22,28 @@ export default function ContactForm() {
   const [phoneNo, setPhoneNo] = useState("");
   const [desc, setDesc] = useState("");
 
-  const { isPending, mutateAsync, mutate } = useMutation({
-    mutationFn: (variables: any) => {
-      return axios.post(
-        "http://165.227.77.33:6969/api/v1/contact-us/",
-        variables,
-      );
-    },
+  const { isPending, mutateAsync } = useMutation({
+    mutationFn: (data: IContactInfo) =>
+      sanityClient.create(data).then((res) => {
+        return res;
+      }),
     onSuccess(data) {
       toast.success("Your message has been sent");
     },
   });
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     try {
-      e.preventDefault();
       await mutateAsync({
-        name: name,
+        _type: "guest",
+        full_name: name,
         email: email,
         phone: phoneNo,
         message: desc,
-        company: companyName,
+        company_name: companyName,
       });
+
       setName("");
       setCompanyName("");
       setEmail("");
@@ -124,7 +133,7 @@ export default function ContactForm() {
 
             <div className="self-end">
               <button
-                disabled={isPending}
+                // disabled={isPending}
                 className="group flex w-full items-center gap-4 rounded-[40px] border border-primary bg-primary px-10 py-4 text-black transition-all duration-100 hover:bg-transparent hover:text-primary disabled:cursor-not-allowed md:w-max md:text-[1.75rem]"
               >
                 {isPending ? (
