@@ -15,10 +15,7 @@ export default function ContactForm() {
 
   const { isPending, mutateAsync, mutate } = useMutation({
     mutationFn: (variables: any) => {
-      return axios.post(
-        "http://165.227.77.33:6969/api/v1/contact-us/",
-        variables,
-      );
+      return axios.post("165.227.77.33:6969/api/v1/contact-us/", variables);
     },
     onSuccess(data) {
       toast.success("Your message has been sent");
