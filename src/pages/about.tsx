@@ -16,8 +16,6 @@ export default function About() {
       />
 
       <AboutList />
-      
-    
       <CollaborateWithUs />
     </AppLayout>
   );

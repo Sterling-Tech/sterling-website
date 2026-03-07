@@ -27,83 +27,112 @@ const cards = [
 ];
 
 const bigStats = [
-  { value: 12, suffix: "Billion+", label: "kWh Managed Annually" },
-  { value: 50, suffix: "Million+", label: "Transactions Processed" },
+  { value: 12, suffix: " Billion+", label: "kWh Managed Annually" },
+  { value: 50, suffix: " Million+", label: "Transactions Processed" },
 ];
 
 export default function PerformanceAtScale() {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.3,
   });
 
   return (
     <section ref={ref} className="bg-white py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-6">
-        
-        {/* SECTION HEADER */}
+
+        {/* HEADER */}
         <div className="mb-20 text-center">
           <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-dim-black mb-4">
             Performance at Scale
           </h2>
+
           <h3 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
             Built for utilities of any size
           </h3>
         </div>
 
-        {/* 3-CARD LAYOUT */}
+        {/* CARDS */}
         <div className="grid gap-8 md:grid-cols-3 mb-24">
-          {cards.map((card, idx) => (
-            <div 
-              key={idx} 
-              className="group flex flex-col p-8 rounded-2xl border border-slate-100 bg-slate-50/50 transition-all hover:bg-white hover:shadow-2xl hover:shadow-slate-200/60"
+
+          {cards.map((card) => (
+            <div
+              key={card.title}
+              className="group flex flex-col p-8 rounded-2xl border border-slate-100 bg-slate-50/50 transition-all duration-300 hover:bg-white hover:shadow-2xl hover:shadow-slate-200/60"
             >
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-slate-900 text-white transition-transform group-hover:scale-110">
-                <card.icon size={28} />
+
+              {/* ICON */}
+              <div className="mb-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-transform duration-300 group-hover:scale-110">
+                  <card.icon className="h-6 w-6 text-slate-900" />
+                </div>
               </div>
-              
-              <h4 className="text-xl font-bold text-slate-900 mb-3">{card.title}</h4>
+
+              <h4 className="text-xl font-bold text-slate-900 mb-3">
+                {card.title}
+              </h4>
+
               <p className="text-slate-600 leading-relaxed mb-6">
                 {card.text}
               </p>
 
-              {/* Internal Mini-Stat */}
+              {/* MINI STAT */}
               <div className="mt-auto pt-6 border-t border-slate-200/60">
-                <div className="text-2xl font-bold text-primary">
+
+                <div className="text-2xl font-bold text-[#FFC400]">
                   {inView && (
-                    <CountUp 
-                      end={card.stat.value} 
+                    <CountUp
+                      end={card.stat.value}
+                      duration={2}
                       decimals={card.stat.value % 1 !== 0 ? 1 : 0}
-                      prefix={card.stat.prefix} 
-                      suffix={card.stat.suffix} 
+                      prefix={card.stat.prefix}
+                      suffix={card.stat.suffix}
                     />
                   )}
                 </div>
+
                 <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
                   {card.stat.label}
                 </p>
+
               </div>
             </div>
           ))}
+
         </div>
 
-        {/* ANIMATED BIG COUNTERS (Bottom Bar) */}
+        {/* BIG STATS */}
         <div className="rounded-3xl bg-slate-900 p-12 text-white">
+
           <div className="grid gap-12 md:grid-cols-2">
-            {bigStats.map((stat, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center">
-                <div className="text-4xl md:text-6xl font-extrabold mb-2 text-primary">
+
+            {bigStats.map((stat) => (
+              <div key={stat.label} className="flex flex-col items-center text-center">
+
+                <div className="text-4xl md:text-6xl font-extrabold mb-2 text-[#FFC400]">
+
                   {inView && (
-                    <CountUp end={stat.value} duration={3} suffix={` ${stat.suffix}`} />
+                    <CountUp
+                      end={stat.value}
+                      duration={4}
+                      separator=","
+                      suffix={stat.suffix}
+                    />
                   )}
+
                 </div>
+
                 <div className="h-1 w-12 bg-white/20 my-4" />
+
                 <p className="text-lg text-slate-400 font-medium tracking-wide">
                   {stat.label}
                 </p>
+
               </div>
             ))}
+
           </div>
+
         </div>
 
       </div>
