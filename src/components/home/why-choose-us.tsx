@@ -12,6 +12,7 @@ export default function WhyChooseUs() {
           <h1 className="text-heading-three font-semibold text-white lg:text-heading-two">
             Why Choose Us?
           </h1>
+          
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {reasonList.map((item) => (
@@ -20,6 +21,7 @@ export default function WhyChooseUs() {
               </AnimateY>
             ))}
           </div>
+          
         </div>
       </Container>
     </section>

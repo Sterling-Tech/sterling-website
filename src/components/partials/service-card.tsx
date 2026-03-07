@@ -1,22 +1,38 @@
+"use client";
+
+import Image from "next/image";
 import React from "react";
-import { CardIcon } from "../icons";
 
 interface IServiceCard {
   title: string;
   body: string;
+  image: string;
 }
 
-export default function ServiceCard(props: IServiceCard) {
+export default function ServiceCard({ title, body, image }: IServiceCard) {
   return (
-    <div className="space-y-6 bg-white p-10">
-      <div className="flex w-max items-center justify-center rounded-md bg-primary p-4">
-        <CardIcon />
+    <div className="space-y-6 rounded-xl bg-white p-10 shadow-sm transition hover:shadow-lg">
+
+      <div className="flex w-max items-center justify-center rounded-md bg-primary/10 p-4">
+
+        <Image
+          src={image}
+          alt={title}
+          width={40}
+          height={40}
+          className="object-contain"
+        />
+
       </div>
 
-      <h3 className="text-2xl font-semibold md:text-4xl">{props.title}</h3>
+      <h3 className="text-2xl font-semibold md:text-3xl">
+        {title}
+      </h3>
+
       <p className="text-sm leading-[140%] text-slate-500 md:text-base">
-        {props.body}
+        {body}
       </p>
+
     </div>
   );
 }

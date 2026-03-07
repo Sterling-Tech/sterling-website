@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         "dim-black": "#0C0E12",
         primary: "#FFDE38",
+        "icon-primary": "#FFDE26",
       },
       fontSize: {
         "heading-two": "5rem",

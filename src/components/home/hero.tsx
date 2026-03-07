@@ -1,44 +1,104 @@
-import React from "react";
+"use client";
+
+import { useEffect, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Image from "next/image";
 import Link from "next/link";
-import { CTAButton, AnimateY } from "../partials";
+
+const slides = [
+  {
+    image: "/hero1.png",
+    subtitle:
+      "We are committed to constantly exploring new ideas and harnessing innovation to drive your success",
+    title: "Shaping A Smarter World",
+    highlight: "Our Vision, Your Solution.",
+    description:
+      "Engineering scalable digital infrastructure for modern enterprises.",
+  },
+  {
+    image: "/hero2.jpg",
+    subtitle: "Innovation meets performance-driven architecture",
+    title: "Building Secure Systems",
+    highlight: "Powered By Intelligence.",
+    description: "Secure, optimized and high-performance backend systems.",
+  },
+  {
+    image: "/hero3.png",
+    subtitle: "Technology aligned with business growth",
+    title: "Transforming Digital Infrastructure",
+    highlight: "Results That Scale.",
+    description: "From ERP customization to enterprise billing systems.",
+  },
+];
 
 export default function Hero() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+
+  // Autoplay function
+  const autoplay = useCallback(() => {
+    if (!emblaApi) return;
+    emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  useEffect(() => {
+    const interval = setInterval(autoplay, 6000);
+    return () => clearInterval(interval);
+  }, [autoplay]);
+
   return (
-    <section>
-      <div className="bg-dim-black pb-20 pt-[90px]  text-white md:pb-[110px]">
-        <div className="mx-auto px-6 sm:max-w-2xl md:max-w-3xl lg:max-w-[1280px] lg:px-0">
-          <div className="space-y-6 pt-20 md:min-h-screen">
-            <AnimateY staggerAmount={0.35}>
-              <h2 className="w-[327px] text-sm leading-[150%] md:w-[411px] md:text-xl">
-                We are committed to constantly exploring new ideas, and
-                harnessing innovation to drive your success
-              </h2>
-            </AnimateY>
+    <section className="relative overflow-hidden">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className="relative flex-[0_0_100%] h-[85vh] min-h-[600px]"
+            >
+              {/* Background Image */}
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                priority={index === 0}
+                className="object-cover"
+              />
 
-            <div className="space-y-10">
-              <AnimateY staggerAmount={0.45}>
-                <h1 className="w-80 text-[2.5rem] font-semibold leading-[150%] tracking-tight md:w-[800px]  md:text-8xl lg:w-[1200px] lg:leading-[140%]">
-                  Shaping A Smarter World{" "}
-                  <span className="text-primary">
-                    Our Vision, Your Solution.
-                  </span>{" "}
-                </h1>
-              </AnimateY>
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-black/70 z-10" />
 
-              <AnimateY staggerAmount={0.5}>
-                <div>
-                  <Link href={"/contact"}>
-                    <CTAButton title="Let's Talk Now" />
-                  </Link>
+              {/* Content */}
+              <div className="relative z-20 flex h-full flex-col justify-center px-6 text-white lg:px-20">
+                <div className="max-w-5xl space-y-6">
+                  {/* Subtitle */}
+                  <p className="max-w-2xl text-sm md:text-lg text-gray-200">
+                    {slide.subtitle}
+                  </p>
+
+                  {/* Main Title */}
+                  <h1 className="text-4xl font-semibold leading-tight tracking-tight md:text-6xl lg:text-7xl">
+                    {slide.title}{" "}
+                    <span className="text-primary">{slide.highlight}</span>
+                  </h1>
+
+                  {/* Description */}
+                  <p className="max-w-xl text-lg text-gray-300">
+                    {slide.description}
+                  </p>
+
+                  {/* CTA Button */}
+                  <div className="pt-6">
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-all hover:shadow-xl hover:shadow-primary/30"
+                    >
+                      Let's Talk Now
+                    </Link>
+                  </div>
                 </div>
-              </AnimateY>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
-      </div>
-
-      <div>
-        <img src="/hero-img.png" alt="Tech Image" />
       </div>
     </section>
   );

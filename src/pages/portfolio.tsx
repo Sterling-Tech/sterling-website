@@ -1,21 +1,21 @@
 import React from "react";
 import { AppLayout } from "@/layouts";
-import { ServiceList } from "@/components/services";
+import { Work } from "@/components/home";
 import { PageHeader, CollaborateWithUs } from "@/components/partials";
+import { PartnersAndClients } from "@/components/home";
 
-
-export default function Services() {
+export default function Portfolio() {
   return (
     <AppLayout>
       <PageHeader
-        heading="Our Services"
-        body="A comprehensive list of all the services we currently offer"
+        heading="Our Portfolio"
+        body="Here are Our Paramount Works"
         cta="Reach Out to Us"
         link="/contact"
       />
-      
-      <ServiceList />
+      <Work/>
       <CollaborateWithUs />
+      <PartnersAndClients />
     </AppLayout>
   );
 }

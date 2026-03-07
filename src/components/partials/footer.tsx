@@ -1,77 +1,141 @@
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/layouts";
 import { LinkedIn, Twitter, Facebook } from "../icons";
-import Link from "next/link";
 
 export default function Footer() {
-  const currentYear = new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-  }).format(new Date());
+  const currentYear = new Date().getFullYear();
+
   return (
-    <Container>
-      <footer className="border-t border-slate-300 pb-10 pt-6">
-        <div className="flex flex-col justify-between md:flex-row md:items-center">
-          <Link href={"/"}>
-            <div className="flex items-center gap-2">
-              <img src="/sterling-logo.png" alt="" />
-              <p className="text-xl font-semibold">Sterling</p>
-            </div>
-          </Link>
+    <footer className="bg-dim-black text-slate-300 pt-20 pb-10 mt-32">
+      <Container>
+        {/* Top Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
-          <ul className="hidden items-center gap-6 md:flex">
-            <li>
-              <Link href={"/"}>Home</Link>
-            </li>
-            <li>
-              <Link href={"/services"}>Services</Link>
-            </li>
-            <li>
-              <Link href={"/"}>Work</Link>
-            </li>
-            <li>
-              <Link href={"/contact"}>Contact Us</Link>
-            </li>
-          </ul>
+          {/* ================= COMPANY ================= */}
+          <div>
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/sterling-logo.png"
+                alt="Sterling Technologies"
+                width={40}
+                height={40}
+              />
+              <span className="text-xl font-semibold text-white">
+                Sterling
+              </span>
+            </Link>
 
-          <div className="mt-10 flex items-start justify-between md:mt-0 md:items-center">
-            <ul className="flex flex-row items-center gap-6 md:hidden md:flex-col md:gap-10">
-              <div className="flex flex-col gap-6 md:flex-row md:gap-10">
-                <li>
-                  <Link href={"/"}>Home</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>About</Link>
-                </li>
-              </div>
-              <div className="flex flex-col gap-6 md:flex-row md:gap-10">
-                <li>
-                  <Link href={"/services"}>Services</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Work</Link>
-                </li>
-              </div>
+            <p className="mt-6 text-sm leading-relaxed text-slate-400">
+              Engineering scalable digital solutions through precision,
+              innovation, and partnership-driven delivery.
+            </p>
+          </div>
+
+          {/* ================= COMPANY LINKS ================= */}
+          <div>
+            <h4 className="text-white font-semibold mb-6">Company</h4>
+            <ul className="space-y-4 text-sm">
+              <li>
+                <Link href="/" className="hover:text-white transition">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-white transition">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-white transition">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-white transition">
+                  Contact
+                </Link>
+              </li>
             </ul>
+          </div>
 
-            <div className="flex flex-col items-center gap-4 md:flex-row">
-              <a href="#">
+          {/* ================= SERVICES ================= */}
+          <div>
+            <h4 className="text-white font-semibold mb-6">Services</h4>
+            <ul className="space-y-4 text-sm">
+              <li>
+                <Link href="/services" className="hover:text-white transition">
+                  IT Consulting
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-white transition">
+                  Software Development
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-white transition">
+                  Cloud Solutions
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-white transition">
+                  Cybersecurity
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* ================= SOCIAL ================= */}
+          <div>
+            <h4 className="text-white font-semibold mb-6">Connect</h4>
+
+            <div className="flex items-center gap-5">
+              <a
+                href="#"
+                className="p-3 bg-slate-800 rounded-lg hover:bg-primary transition"
+              >
                 <LinkedIn />
               </a>
-              <a href="#">
+
+              <a
+                href="#"
+                className="p-3 bg-slate-800 rounded-lg hover:bg-primary transition"
+              >
                 <Twitter />
               </a>
-              <a href="#">
+
+              <a
+                href="#"
+                className="p-3 bg-slate-800 rounded-lg hover:bg-primary transition"
+              >
                 <Facebook />
               </a>
             </div>
+
+            <p className="mt-6 text-sm text-slate-400">
+              info@sterlingtechnologies.com.ng
+            </p>
           </div>
         </div>
 
-        <p className="mt-16 text-sm text-slate-600 md:text-center md:text-base">
-          © {currentYear} Sterling Technologies and Systems. All rights
-          reserved.
-        </p>
-      </footer>
-    </Container>
+        {/* ================= BOTTOM BAR ================= */}
+        <div className="border-t border-slate-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-slate-500">
+          <p>
+            © {currentYear} Sterling Technologies & Systems. All rights reserved.
+          </p>
+
+          <div className="flex gap-6">
+            <Link href="#" className="hover:text-white transition">
+              Privacy Policy
+            </Link>
+            <Link href="#" className="hover:text-white transition">
+              Terms of Service
+            </Link>
+          </div>
+        </div>
+      </Container>
+    </footer>
   );
 }

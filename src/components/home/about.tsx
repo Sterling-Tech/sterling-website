@@ -1,42 +1,37 @@
 import React from "react";
 import Link from "next/link";
 import { Container } from "@/layouts";
-import { serviceList } from "@/static/data";
-import { ServiceCard, AnimateY, CTAButton } from "../partials";
-import StatsSection from "../partials/statsSection";
+import { aboutList } from "@/static/aboutdata";
+import { ServiceCard, AnimateY, CTAButton, ServicesSection, ValuesSection } from "../partials";
 
-
-export default function Services() {
+export default function About() {
   return (
     <section className="bg-slate-100 py-20">
       <Container>
         <div className="space-y-6">
           <h1 className="md:text-heading-two text-heading-three font-bold">
-            Our Services
+            About Us
           </h1>
-          <p className="leading-[150%] text-slate-600 md:w-[464px] md:text-2xl">
+          {/* <p className="leading-[150%] text-slate-600 md:w-[464px] md:text-2xl">
             We create custom tech solutions to meet your unique requirements.
-          </p>
+          </p> */}
+          <ValuesSection/>
+          <ServicesSection/>
         </div>
 
-        <div className="mt-20 grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2">
-          {serviceList.slice(0, 4).map((item) => (
+        {/* <div className="mt-20 grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2">
+          {aboutList.slice(0, 4).map((item) => (
             <AnimateY staggerAmount={0.35}>
               <ServiceCard key={item.id} {...item} />
             </AnimateY>
           ))}
-        </div>
+        </div> */}
 
         <div className="mx-auto mt-20 w-max">
-          <Link href={"/services"}>
+          <Link href={"/about"}>
             <CTAButton title="See More" />
           </Link>
         </div>
-
-        <div className="mt-20">
-          <StatsSection/>
-        </div>
-        
       </Container>
     </section>
   );
