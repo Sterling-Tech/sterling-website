@@ -1,7 +1,7 @@
 export const serviceList = [
   {
     id: 1,
-    title: "Energy Vending",
+    title: "Energy Infrastructure Management",
     body: "We provide services that enable the sale and distribution of electricity or other forms of energy to consumers through self-service kiosks, mobile apps, or other convenient means.",
     image: "/vend.png",
   },
