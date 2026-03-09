@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Container } from "@/layouts";
 import { RightArrow } from "../icons";
@@ -12,7 +13,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
-    { name: "Portfolio", href: "/portfolio" },
+    { name: "Products", href: "/products" },
     { name: "About Us", href: "/about" },
   ];
 
@@ -23,11 +24,20 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/">
-            <div className="flex items-center gap-2 cursor-pointer">
-              <img src="/sterling-logo.png" alt="Sterling logo" />
+            <div className="flex items-center gap-3 cursor-pointer">
+
+              <Image
+                src="/sterling-logo.png"
+                alt="Sterling Technology & Systems"
+                width={45}
+                height={45}
+                priority
+              />
+
               <p className="hidden text-xl font-semibold md:block">
                 Sterling
               </p>
+
             </div>
           </Link>
 
@@ -56,11 +66,11 @@ export default function Navbar() {
                       {link.name}
                     </Link>
 
-                    {/* Underline */}
+                    {/* Animated underline */}
                     <span
                       className={`
                         absolute left-0 -bottom-2 h-[2px] w-full bg-[#FFDE26]
-                        transform origin-left transition-transform duration-300
+                        origin-left transform transition-transform duration-300
                         ${
                           isActive
                             ? "scale-x-100"
@@ -68,13 +78,14 @@ export default function Navbar() {
                         }
                       `}
                     />
+
                   </li>
                 );
               })}
 
             </ul>
 
-            {/* CTA Button */}
+            {/* CTA */}
             <Link href="/contact">
               <button className="group hidden items-center gap-2 rounded-3xl border border-primary px-4 py-2 text-primary transition-all duration-200 hover:bg-primary hover:text-black md:flex">
                 <span className="font-semibold">Get in Touch</span>
