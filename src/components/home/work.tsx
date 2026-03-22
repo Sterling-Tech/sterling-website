@@ -159,7 +159,7 @@ export default function Work() {
           <AnimateX staggerAmount={0.55} direction={40}>
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2">
               <div>
-                <img src="/SPI.jpg" alt="SPI Thumbnail" />
+                <img src="/SPI.JPG" alt="SPI Thumbnail" />
               </div>
               <div className="space-y-4">
                 <h3 className="text-2xl font-semibold md:text-4xl">
