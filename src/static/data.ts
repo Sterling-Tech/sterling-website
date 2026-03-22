@@ -15,7 +15,7 @@ export const serviceList = [
     id: 3,
     title: "Vending Services",
     body: "End-to-end vending operations for prepaid electricity, including STS token generation, vendor networkmanagement, and real-time transaction processing",
-    image: "/Payment.png",
+    image: "/Payments.png",
   },
   {
     id: 4,
