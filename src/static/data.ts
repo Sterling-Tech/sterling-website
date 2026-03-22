@@ -63,7 +63,7 @@ export const serviceList = [
     id: 11,
     title: "Custom Application Development",
     body: "Bespoke software development for utility operators, estates, institutions, and enterprises requiring specialized digital solutions.",
-    image: "/custom-app.gif",
+    image: "/custom-app.png",
   },
 ];
 
