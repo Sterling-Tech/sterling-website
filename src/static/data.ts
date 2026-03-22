@@ -21,7 +21,7 @@ export const serviceList = [
     id: 4,
     title: "Third-Party Vendor & Collection Network Manageement",
     body: "Onboarding, monitoring, and managing third-party collection agents, aggregators, and payment channels within a unified network.",
-    image: "/Payment.png",
+    image: "/TPPayment.png",
   },
   {
     id: 5,
@@ -33,13 +33,13 @@ export const serviceList = [
     id: 6,
     title: "Revenue Assurance Services",
     body: "Identification and recovery of revenue leakages through data audits, billing reconciliation, and commercial loss analysis.",
-    image: "/Payment.png",
+    image: "/rev-assured.png",
   },
   {
     id: 7,
     title: "Debt Management & Collection Services",
     body: "Structured debt recovery using our sub-account engine, supporting multiple debt types and flexible repayment configurations tailored to each customer.",
-    image: "/Payment.png",
+    image: "/debt-collect.png",
   },
   {
     id: 8,
