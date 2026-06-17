@@ -1,0 +1,39 @@
+{
+  "name": "sterling-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.8.4",
+    "aos": "^2.3.4",
+    "axios": "^1.6.2",
+    "framer-motion": "^10.16.5",
+    "lucide-react": "^0.575.0",
+    "next": "14.0.2",
+    "next-sanity": "^6.0.5",
+    "react": "^18",
+    "react-countup": "^6.5.3",
+    "react-dom": "^18",
+    "react-slick": "^0.31.0",
+    "slick-carousel": "^1.8.1",
+    "sonner": "^1.2.2"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-slick": "^0.23.13",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "prettier": "^3.1.0",
+    "prettier-plugin-tailwindcss": "^0.5.7",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}

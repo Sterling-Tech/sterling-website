@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* React Slick Slider Fixes */
+/* .slider-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slick-slider {
+  width: 100%;
+}
+
+.slick-slide {
+  width: 100% !important;
+}
+
+.slick-slide > div {
+  width: 100%;
+} */
