@@ -9,3 +9,12 @@ export default function CTAButton({ title }: { title: string }) {
     </button>
   );
 }
+
+export const Btn=({title, className}:{title:string, className?: string})=>{
+  return(
+    // <div className="w-30 md:w-40 lg:w-60 bg-blue-950 text-white px-5 py-4 rounded-full text-center font-semibold cursor-pointer hover:bg-black border border-blue-950 transition-all duration-100">
+    <div className={className ? className : "w-30 md:w-60 lg:w-72 bg-blue-950 text-white px-5 py-4 rounded-full text-center font-semibold cursor-pointer hover:bg-black border border-blue-950 transition-all duration-100"}>
+      <span>{title}</span>
+    </div>
+  )
+}

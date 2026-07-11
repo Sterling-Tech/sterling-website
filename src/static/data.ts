@@ -170,3 +170,27 @@ export const reviewsList = [
       "Exceptional work and reliable support. Their energy vending solutions exceeded our expectations.",
   },
 ];
+
+export const performanceList = [
+  {
+    id: 1,
+    icon: "/images/database.svg",
+    title: "Massive Scale Processing",
+    text: "Handles millions of vending transactions monthly with sub-second response times.",
+    stat: "5M+ transactions processed monthly"
+  },
+  {
+    id: 2,
+    icon: "/images/zap.svg",
+    title: "Real-Time Intelligence",
+    text: "Process meter data and analytics in real-time for instant decision-making.",
+    stat: "< 2sec average response time"
+  },
+  {
+    id: 3,
+    icon: "/images/lock-keyhole.svg",
+    title: "Enterprise Reliability",
+    text: "Cloud-native architecture with automatic failover and disaster recovery.",
+    stat: "99.9% uptime SLA"
+  },
+];

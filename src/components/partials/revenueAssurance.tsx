@@ -1,171 +1,167 @@
-"use client";
+'use client'
+import { Container } from '@/layouts';
+import React, { useEffect, useState } from 'react'
+import CTAButton from '../partials/cta-button';
+import { Btn } from '../partials/cta-button';
+import Aos from 'aos';
 
-import { useEffect, useRef, useState } from "react";
-import { Check } from "lucide-react";
 
-function useCountUp(target: number, duration = 2000) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [started, setStarted] = useState(false);
+const solutions = {
+  solution: {
+    title: "Smartpower ERP",
+    subtitle: "Enterprise Resource Planning Built for Utilities.",
+    description:
+      "Comprehensive utility management platform that integrates meter data, billing, asset management, and AI-powered analytics into one unified system.",
+    image: "/images/erp2.jpg",
+    imageAlt: "Smartpower ERP",
+    animation: "fade-right",
+    button: "Explore Smartpower ERP",
+    features: [
+      "Real-time meter data management",
+      "Automated billing & invoicing",
+      "Work & asset management",
+      "AI-powered demand forecasting",
+      "Loss detection & prevention",
+      "Regulatory compliance reporting",
+    ],
+  },
+
+  impact: {
+    title: "Quickcash Vending",
+    subtitle: "Seamless Prepaid Utility Vending.",
+    description:
+      "STS-compliant prepaid vending system with multi-channel payment collection, instant token generation, and real-time reconciliation.",
+    image: "/images/quickcash4.jpg",
+    imageAlt: "Quickcash Vending",
+    animation: "fade-left",
+    button: "Explore Quickcash Vending",
+    features: [
+      "STS-compliant token generation",
+      "Multi-channel payments (USSD, Web, Mobile App & POS)",
+      "Automated reconciliation",
+      "Customer self-service portal",
+      "Bulk vending for properties",
+      "Integration with payment gateways",
+    ],
+  },
+};
+
+export default function IntegratedSolution() {
+  const [activeTab, setActiveTab] =
+    useState<keyof typeof solutions>("solution");
 
   useEffect(() => {
-    if (!ref.current) return;
+    Aos.init({
+      duration: 800,
+      once: true,
+      easing: "ease-out-cubic",
+    });
+  }, []);
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started) {
-          setStarted(true);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [started]);
-
-  useEffect(() => {
-    if (!started) return;
-
-    let start = 0;
-    const increment = target / (duration / 16);
-
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 16);
-
-    return () => clearInterval(timer);
-  }, [started, target, duration]);
-
-  return { count, ref };
-}
-
-export default function RevenueAssuranceSection() {
-  const collected = useCountUp(50);
-  const reduction = useCountUp(40);
-  const rate = useCountUp(998);
+  const current = solutions[activeTab];
 
   return (
-    <section className="relative overflow-hidden bg-white py-24">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+    <section className="bg-slate-50 py-24 lg:py-32">
+      <Container>
+        {/* Header */}
+        <div className="mx-auto mb-14 max-w-3xl text-center">
+          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            Two Platforms.{" "}
+            <span className="text-gradient">One Ecosystem.</span>
+          </h2>
 
-          {/* LEFT — Animated Illustration */}
-          <div className="relative">
-            <div className="relative mx-auto max-w-md">
-
-              <svg
-                viewBox="0 0 400 300"
-                className="w-full animate-pulse"
-              >
-                {/* Customer */}
-                <circle cx="60" cy="150" r="30" fill="#facc15" />
-                <text x="40" y="155" fontSize="12" fill="#000">
-                  Customer
-                </text>
-
-                {/* Quickcash */}
-                <rect x="150" y="120" width="100" height="60" rx="10" fill="#2563eb" />
-                <text x="165" y="155" fontSize="12" fill="#fff">
-                  Vending
-                </text>
-
-                {/* ERP */}
-                <rect x="300" y="110" width="80" height="80" rx="10" fill="#1e293b" />
-                <text x="310" y="155" fontSize="12" fill="#fff">
-                  ERP
-                </text>
-
-                {/* Flow Lines */}
-                <line x1="90" y1="150" x2="150" y2="150" stroke="#facc15" strokeWidth="3">
-                  <animate attributeName="stroke-dashoffset" values="100;0" dur="2s" repeatCount="indefinite" />
-                </line>
-
-                <line x1="250" y1="150" x2="300" y2="150" stroke="#2563eb" strokeWidth="3">
-                  <animate attributeName="stroke-dashoffset" values="100;0" dur="2s" repeatCount="indefinite" />
-                </line>
-              </svg>
-
-            </div>
-          </div>
-
-          {/* RIGHT — Content */}
-          <div>
-            <h2 className="text-4xl font-bold text-slate-900 lg:text-5xl">
-              Revenue Assurance That <span className="text-primary">Actually Works</span>
-            </h2>
-
-            <p className="mt-6 text-lg text-slate-600">
-              Reduce revenue loss by up to 40% with intelligent vending and ERP integration.
-            </p>
-
-            <ul className="mt-8 space-y-5">
-              {[
-                "STS-compliant prepaid vending",
-                "Multi-channel payment collection (USSD, Web, Mobile, POS)",
-                "Automated reconciliation & reporting",
-                "Real-time fraud detection & alerts",
-                "Seamless ERP integration",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-4 group">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 transition-transform duration-300 group-hover:scale-110">
-                    <Check className="h-5 w-5 text-primary" />
-                  </span>
-                  <span className="text-slate-700">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <p className="mt-5 text-base leading-8 text-slate-600 lg:text-lg">
+            A complete digital ecosystem for utilities, combining enterprise
+            operations management with secure and seamless prepaid vending.
+          </p>
         </div>
 
-        {/* Bottom Stats Bar */}
-        <div className="mt-20 rounded-2xl bg-slate-900 p-8 text-white shadow-xl">
-          <div className="grid gap-8 text-center sm:grid-cols-3">
+        {/* Tabs */}
+        <div className="mb-12 flex flex-wrap justify-center gap-4">
+          <button
+            onClick={() => setActiveTab("solution")}
+            className={`rounded-full px-8 py-3 text-sm font-semibold transition-all duration-300 md:min-w-[220px]
+              ${
+                activeTab === "solution"
+                  ? "bg-primary text-white shadow-lg"
+                  : "border border-slate-300 bg-white text-slate-700 hover:border-primary hover:text-primary"
+              }`}
+          >
+            Smartpower ERP
+          </button>
 
-            <div ref={collected.ref}>
-              <div className="text-3xl font-bold lg:text-4xl">
-                ₦{collected.count}+ Billion
-              </div>
-              <div className="mt-2 text-sm text-slate-400">
-                Collected
-              </div>
+          <button
+            onClick={() => setActiveTab("impact")}
+            className={`rounded-full px-8 py-3 text-sm font-semibold transition-all duration-300 md:min-w-[220px]
+              ${
+                activeTab === "impact"
+                  ? "bg-primary text-white shadow-lg"
+                  : "border border-slate-300 bg-white text-slate-700 hover:border-primary hover:text-primary"
+              }`}
+          >
+            Quickcash Vending
+          </button>
+        </div>
+
+        {/* Content Card */}
+        <div
+          key={activeTab}
+          className="overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-500 hover:shadow-2xl lg:p-12"
+        >
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            {/* Image */}
+            <div data-aos={current.animation}>
+              <img
+                src={current.image}
+                alt={current.imageAlt}
+                className="h-full w-full rounded-2xl object-cover shadow-xl transition-transform duration-500 hover:scale-[1.02]"
+              />
             </div>
 
-            <div ref={reduction.ref}>
-              <div className="text-3xl font-bold lg:text-4xl">
-                {reduction.count}% 
-              </div>
-              <div className="mt-2 text-sm text-slate-400">
-                Reduction in Revenue Loss
+            {/* Content */}
+            <div
+              data-aos="fade-up"
+              className="flex flex-col justify-center"
+            >
+              <span className="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1 text-sm font-semibold text-primary">
+                {current.title}
+              </span>
+
+              <h3 className="text-3xl font-bold text-slate-900">
+                {current.subtitle}
+              </h3>
+
+              <p className="mt-6 text-base leading-8 text-slate-600">
+                {current.description}
+              </p>
+
+              {/* Features */}
+              <ul className="mt-8 space-y-4">
+                {current.features.map((feature) => (
+                  <li
+                    key={feature}
+                    className="flex items-start gap-4"
+                  >
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary"></span>
+
+                    <span className="text-slate-700">
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA */}
+              <div className="mt-10">
+                <Btn
+                  title={current.button}
+                  className="rounded-full bg-primary px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-slate-900"
+                />
               </div>
             </div>
-
-            <div ref={rate.ref}>
-              <div className="text-3xl font-bold lg:text-4xl">
-                99.{rate.count}%
-              </div>
-              <div className="mt-2 text-sm text-slate-400">
-                Collection Rate
-              </div>
-            </div>
-
           </div>
         </div>
-
-      </div>
-
-      {/* Sticky Mobile Stats */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-slate-900 p-4 text-center text-white shadow-lg sm:hidden">
-        <div className="text-sm font-semibold">
-          ₦50+ Billion Collected • 40% Loss Reduction • 99.8% Rate
-        </div>
-      </div>
+      </Container>
     </section>
   );
 }

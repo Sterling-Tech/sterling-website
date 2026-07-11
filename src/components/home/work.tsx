@@ -1,196 +1,542 @@
-import React from "react";
+"use client";
+import { PageHeader } from "@/components/partials";
 import { Container } from "@/layouts";
-import { AnimateX } from "../partials";
+import Aos from "aos";
+import { Btn } from "../partials/cta-button";
+import { useEffect, useState } from "react";
+import Integration from "./integration";
 
-export default function Work() {
+export default function Products() {
+  const [activeTab, setActiveTab] = useState("smartpower");
+  const tabs = [
+    { id: "smartpower", label: "Smart Power" },
+    { id: "quickcash", label: "QuickCash" },
+    { id: "quickpay", label: "QuickPay" },
+    { id: "postpaid", label: "Postpaid Billing" },
+    { id: "analytics", label: "SPI/Analytics" },
+
+    { id: "smartbilling", label: "Smart Billing" },
+    { id: "smartvending", label: "Smart Vending" },
+    { id: "revenueassurance", label: "Revenue Assurance" },
+    { id: "energytheftmgt", label: "Energy Theft Management" },
+
+  ];
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
-    <section id="work" className=" py-20">
-      <Container>
-        <div className="space-y-6">
-          <h1 className="text-heading-three font-bold md:text-heading-two">
-            Our Work
-          </h1>
-          <p className="leading-[150%] text-slate-600 md:w-[664px] md:text-2xl">
-            We have a plethora of projects that we have successfully delivered
-            for our clients
-          </p>
-        </div>
-        <div className="mt-20 space-y-20">
-          <AnimateX staggerAmount={0.35} direction={40}>
-            <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2">
-              <div>
-                <img src="/smart-power.png" alt="Smart Power Thumbnail" />
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-2xl font-semibold md:text-4xl">
-                  Smart Power
-                </h3>
-                <h6 className="text-lg md:text-xl font-semibold text-red-600">
-                  Utility Billing & Customer Information System
-                </h6>
-                <p className="text-sm leading-[140%] text-slate-700 md:w-[90%] md:text-base">
-                  Smart Power is our flagship utility management platform,
-                  providing a comprehensive billing infrastructure and
-                  Customer Information System (CIS). It supports multiple
-                  billing methodologies — including feeder-wise,
-                  district-wise, transformer-level, and availability-based
-                  billing — enabling discos to manage millions of customers
-                  with accuracy and efficiency. Built with deep integration
-                  across the utility value chain.
-                </p>
-                <div className="flex gap-x-4">
-                  <span className="rounded-3xl border border-dim-black px-2 py-2 text-sm text-dim-black md:px-3 md:text-base">
-                    Report Generation
-                  </span>
-                  <span className="rounded-3xl border border-dim-black px-2 py-2 text-sm text-dim-black md:px-3 md:text-base">
-                    Payment Collection
-                  </span>
+    <div>
+      <div className="my-20">
+        <Container>
+          <div className="mb-12 text-center">
+            <h2 className="items-center text-2xl font-bold">Our Products</h2>
+            <h2 className="items-center text-2xl font-bold">
+              {" "}
+              Enterprise Grade Utility Management ││ Platforms Built For Scale
+            </h2>
+          </div>
+          <div
+            className="mb-8 flex w-full gap-4 overflow-x-auto whitespace-nowrap 
+                        pb-2 sm:flex-wrap sm:overflow-visible"
+          >
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`
+                                    w-[200px] flex-shrink-0 rounded-lg px-6 py-3
+                                    font-semibold transition sm:w-auto
+                                    ${
+                                      activeTab === tab.id
+                                        ? "bg-blue-950 text-white shadow-lg"
+                                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                                    }
+                            `}
+                data-aos="zoom-out"
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+          <div className="rounded-lg bg-white p-8 shadow-md">
+            {activeTab === "smartpower" && (
+              <div className="space-y-6">
+                <div className="border-l-4 border-blue-950 pl-6">
+                  <h3 className="mb-2 text-3xl font-bold text-blue-900">
+                    Smart Power
+                  </h3>
+                  <h4 className="mb-4 text-xl font-semibold italic text-primary">
+                    Utility Billing & Customer Information System
+                  </h4>
                 </div>
-              </div>
-            </div>
-          </AnimateX>
-
-          <AnimateX staggerAmount={0.45} direction={-40}>
-            <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2">
-              <div className="space-y-4">
-                <h3 className="text-2xl font-semibold md:text-4xl">
-                  QuikPay
-                </h3>
                 
-                <h6 className="text-lg md:text-xl font-semibold text-red-600">
-                  STS Token-Based & AMI Vending Platform
-                </h6>
-                <p className="text-sm leading-[140%] text-slate-700 md:w-[90%] md:text-base">
-                  QuickPay is our multi-mode vending platform supporting
-                  both Standard Transfer Specification (STS) token-based
-                  prepaid meters and Advanced Metering Infrastructure
-                  (AMI) smart meters. AMI-enabled vending allows remote
-                  connect/disconnect, wallet-based energy control, and
-                  automated credit threshold management — eliminating
-                  the need for physical token distribution while improving
-                  customer experience and collection rates.
-                </p>
-                <div className="flex gap-x-4">
-                  <span className="rounded-3xl border border-dim-black px-2 py-2 text-sm text-dim-black md:px-3 md:text-base">
-                    Report Generation
-                  </span>
-                  <span className="rounded-3xl border border-dim-black px-2 py-2 text-sm text-dim-black md:px-3 md:text-base">
-                    Product Vending
-                  </span>
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                  <div className="w-full" data-aos="zoom-out">
+                    <img
+                      src="/images/smartpower.jpg"
+                      alt="smartpower"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div
+                    className="text-lg leading-relaxed text-gray-700"
+                    data-aos="zoom-in"
+                  >
+                    <p className="text-black">
+                      Our flagship utility management platform providing
+                      comprehensive billing infrastructure and Customer
+                      Information System (CIS). Supports multiple billing
+                      methodologies including feeder-wise, district-wise,
+                      transformer-level, and availability-based billing.
+                    </p>
+                    <ul className="list-inside list-disc">
+                      <h1 className="font-semibold text-black">
+                        Key Features:
+                      </h1>
+                      <li>Comprehensive billing infrastructure</li>
+                      <li>Customer Information System (CIS)</li>
+                      <li>
+                        Multiple billing methodologies (feeder-wise,
+                        district-wise, transformer-level)
+                      </li>
+                      <li>Availability-based billing support</li>
+                      <li>Manages millions of customers with accuracy</li>
+                      <li>Deep integration across utility value chain</li>
+                      <li>Scalable for large distribution ivtworks</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <Btn title="Learn More" />
                 </div>
               </div>
+            )}
 
-              <div>
-                <img src="/quick-pay.png" alt="Quick Pay Thumbnail" />
-              </div>
-            </div>
-          </AnimateX>
-
-          <AnimateX staggerAmount={0.55} direction={40}>
-            <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2">
-              <div>
-                <img src="/quick-cash.png" alt="Smart Power Thumbnail" />
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-2xl font-semibold md:text-4xl">
-                  QuikCash
-                </h3>
+            {activeTab === "quickcash" && (
+              <div className="space-y-6">
+                <div className="border-l-4 border-blue-950 pl-6">
+                  <h3 className="mb-2 text-3xl font-bold text-blue-900">
+                    QuickCash
+                  </h3>
+                  <h4 className="mb-4 text-xl font-semibold italic text-primary">
+                    Collection & Third-Party Payment Network Platform
+                  </h4>
+                </div>
                 
-                <h6 className="text-lg md:text-xl font-semibold text-red-600">
-                  Collection & Third-Party Payment Network Platform
-                </h6>
-                <p className="text-sm leading-[140%] text-slate-700 md:w-[90%] md:text-base">
-                  QuickCash is a robust collection and payment network
-                  platform designed for utility companies and service
-                  providers. It includes a powerful sub-account module for
-                  comprehensive debt management, supports third-party
-                  vendor integrations, and provides real-time analytics
-                  through its built-in SPI/reporting engine. QuickCash
-                  serves as the financial backbone for vending, collection,
-                  and revenue assurance operations.
-                </p>
-                <div className="flex gap-x-4">
-                  <span className="rounded-3xl border border-dim-black px-2 py-2 text-sm text-dim-black md:px-3 md:text-base">
-                    Report Generation
-                  </span>
-                  <span className="rounded-3xl border border-dim-black px-2 py-2 text-sm text-dim-black md:px-3 md:text-base">
-                    Payment Collection
-                  </span>
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                  <div className="w-full" data-aos="zoom-out">
+                    <img
+                      src="/quick-cash.png"
+                      alt="smartpower"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div
+                    className="text-lg leading-relaxed text-gray-700"
+                    data-aos="zoom-in"
+                  >
+                    <p className="text-black">
+                      Robust collection and payment network platform designed
+                      for utility companies. Includes powerful sub-account
+                      module for comprehensive debt management, third-party
+                      vendor integrations, and real-time analytics through
+                      built-in SPI/reporting engine.
+                    </p>
+                    <ul className="list-inside list-disc">
+                      <h1 className="font-semibold text-black">
+                        Key Features:
+                      </h1>
+                      <li>Financial backbone for vending operations</li>
+                      <li>Collection and revenue assurance</li>
+                      <li>Sub-account module for debt management</li>
+                      <li>Third-party vendor integrations</li>
+                      <li>Real-time analytics and reporting</li>
+                      <li>Built-in SPI/reporting engine</li>
+                      <li>Multi-channel payment processing</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <Btn title="Learn More" />
                 </div>
               </div>
-            </div>
-          </AnimateX>
+            )}
 
-          <AnimateX staggerAmount={0.45} direction={-40}>
-            <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2">
-              <div className="space-y-4">
-                <h3 className="text-2xl font-semibold md:text-4xl">
-                  Postpaid Billing System
-                </h3>
+            {activeTab === "quickpay" && (
+              <div className="space-y-6">
+                <div className="border-l-4 border-blue-950 pl-6">
+                  <h3 className="mb-2 text-3xl font-bold text-blue-900">
+                    QuickPay
+                  </h3>
+                  <h4 className="mb-4 text-xl font-semibold italic text-primary">
+                    STS Token-Based & AMI Vending Platform
+                  </h4>
+                </div>
                 
-                <h6 className="text-lg md:text-xl font-semibold text-red-600">
-                  Metered & Non-Metered Postpaid Billing
-                </h6>
-                <p className="text-sm leading-[140%] text-slate-700 md:w-[90%] md:text-base">
-                  Our postpaid billing solution handles both
-                  metered customers (traditional and digital meter reading) 
-                  and unmetered customers through availability-based 
-                  and estimated billing models. It supports pre-billing runs, 
-                  alignment workflows, multi-level bill generation, 
-                  and automated bill sheet production — fully configurable to regulatory 
-                  and tariff requirements across any distribution network.
-                </p>
-                <div className="flex gap-x-4">
-                  <span className="rounded-3xl border border-dim-black px-2 py-2 text-sm text-dim-black md:px-3 md:text-base">
-                    Report Generation
-                  </span>
-                  <span className="rounded-3xl border border-dim-black px-2 py-2 text-sm text-dim-black md:px-3 md:text-base">
-                    Product Vending
-                  </span>
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                  <div className="w-full" data-aos="zoom-out">
+                    <img
+                      src="/quick-pay.png"
+                      alt="smartpower"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div
+                    className="text-lg leading-relaxed text-gray-700"
+                    data-aos="zoom-in"
+                  >
+                    <p className="text-black">
+                      Multi-mode vending platform supporting both Standard
+                      Transfer Specification (STS) token-based prepaid meters
+                      and Advanced Metering Infrastructure (AMI) smart meters.
+                      Enables remote connect/disconnect, wallet-based energy
+                      control, and automated credit threshold management.
+                    </p>
+                    <ul className="list-inside list-disc">
+                      <h1 className="font-semibold text-black">
+                        Key Features:
+                      </h1>
+                      <li>STS-compliant token generation</li>
+                      <li>AMI smart meter support</li>
+                      <li>Remote connect/disconnect capability</li>
+                      <li>Wallet-based energy control</li>
+                      <li>Automated credit threshold management</li>
+                      <li>No physical token distribution needed</li>
+                      <li>Improved customer experience</li>
+                      <li>Higher collection rates</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <Btn title="Learn More" />
                 </div>
               </div>
+            )}
 
-              <div>
-                <img src="/postpaid-electricity-billing.jpg" alt="postpaid-electricity-billing Thumbnail" />
-              </div>
-            </div>
-          </AnimateX>
-
-          <AnimateX staggerAmount={0.55} direction={40}>
-            <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2">
-              <div>
-                <img src="/SPI.JPG" alt="SPI Thumbnail" />
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-2xl font-semibold md:text-4xl">
-                  SPI / Analytics
-                </h3>
+            {activeTab === "postpaid" && (
+              <div className="space-y-6">
+                <div className="border-l-4 border-blue-950 pl-6">
+                  <h3 className="mb-2 text-3xl font-bold text-blue-900">
+                    Postpaid Billing System
+                  </h3>
+                  <h4 className="mb-4 text-xl font-semibold italic text-primary">
+                    Metered & Non-Metered Postpaid Billing
+                  </h4>
+                </div>
                 
-                <h6 className="text-lg md:text-xl font-semibold text-red-600">
-                  Vendor Transaction Analytics & Reporting
-                </h6>
-                <p className="text-sm leading-[140%] text-slate-700 md:w-[90%] md:text-base">
-                  Our analytics module delivers real-time and historical
-                  insights into vendor performance, collection trends,
-                  customer segments, and revenue patterns. Dashboards
-                  provide at-a-glance views of prepaid/postpaid splits, MD
-                  vs. non-MD customers, tariff distributions, and
-                  feeder-level analysis — giving tenants and administrators
-                  the intelligence needed to drive operational decisions.
-                </p>
-                <div className="flex gap-x-4">
-                  <span className="rounded-3xl border border-dim-black px-2 py-2 text-sm text-dim-black md:px-3 md:text-base">
-                    Report Generation
-                  </span>
-                  <span className="rounded-3xl border border-dim-black px-2 py-2 text-sm text-dim-black md:px-3 md:text-base">
-                    Payment Collection
-                  </span>
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                  <div className="w-full" data-aos="zoom-out">
+                    <img
+                      src="/images/postpaid4.jpg"
+                      alt="smartpower"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div
+                    className="text-lg leading-relaxed text-gray-700"
+                    data-aos="zoom-in"
+                  >
+                    <p className="text-black">
+                      Comprehensive postpaid billing solution handling both
+                      metered customers (traditional and digital meter reading)
+                      and unmetered customers through availability-based and
+                      estimated billing models.
+                    </p>
+                    <ul className="list-inside list-disc">
+                      <h1 className="font-semibold text-black">
+                        Key Features:
+                      </h1>
+                      <li> Metered customer billing (traditional & digital)</li>
+                      <li> Non-metered customer billing</li>
+                      <li>Availability-based billing models</li>
+                      <li>Estimated billing support</li>
+                      <li>Pre-billing runs</li>
+                      <li>Alignment workflows</li>
+                      <li>Multi-level bill generation</li>
+                      <li>Automated bill sheet production</li>
+                      <li>Configurable to regulatory requirements</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <Btn title="Learn More" />
                 </div>
               </div>
-            </div>
-          </AnimateX>
-        </div>
-      </Container>
-    </section>
+            )}
+
+            {activeTab === "analytics" && (
+              <div className="space-y-6">
+                <div className="border-l-4 border-blue-950 pl-6">
+                  <h3 className="mb-2 text-3xl font-bold text-blue-900">
+                    SPI / Analytics
+                  </h3>
+                  <h4 className="mb-4 text-xl font-semibold italic text-primary">
+                    Vendor Transaction Analytics & Reporting
+                  </h4>
+                </div>
+                
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                  <div className="w-full" data-aos="zoom-out">
+                    <img
+                      src="/images/spi.jpg"
+                      alt="smartpower"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div
+                    className="text-lg leading-relaxed text-gray-700"
+                    data-aos="zoom-in"
+                  >
+                    <p className="text-black">
+                      Real-time and historical insights into vendor performance,
+                      collection trends, customer segments, and revenue
+                      patterns. Dashboards provide at-a-glance views of
+                      prepaid/postpaid splits, MD vs. non-MD customers, and
+                      tariff distributions.
+                    </p>
+                    <ul className="list-inside list-disc">
+                      <h1 className="font-semibold text-black">
+                        Key Features:
+                      </h1>
+                      <li>Real-time analytics dashboards</li>
+                      <li>Historical data analysis</li>
+                      <li>Vendor performance tracking</li>
+                      <li>Collection trend analysis</li>
+                      <li>Customer segmentation</li>
+                      <li>Revenue pattern insights</li>
+                      <li>Prepaid/postpaid split views</li>
+                      <li>MD vs. non-MD customer analysis</li>
+                      <li>Feeder-level analysis</li>
+                      <li>Operational intelligence</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <Btn title="Learn More" />
+                </div>
+              </div>
+            )}
+
+            {activeTab === "smartbilling" && (
+              <div className="space-y-6">
+                <div className="border-l-4 border-blue-950 pl-6">
+                  <h3 className="mb-2 text-3xl font-bold text-blue-900">
+                    Smart Power Billing System
+                  </h3>
+                  <h4 className="mb-4 text-xl font-semibold italic text-primary">
+                    Advanced billing module within the Smart Power ecosystem.
+                  </h4>
+                </div>
+                
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                  <div className="w-full" data-aos="zoom-out">
+                    <img
+                      src="/images/spb.jpg"
+                      alt="smartpower"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div
+                    className="text-lg leading-relaxed text-gray-700"
+                    data-aos="zoom-in"
+                  >
+                    <p className="text-black">
+                        Advanced billing module within the Smart Power ecosystem.
+                        Handles complex utility billing scenarios including prepaid
+                        and postpaid models, multi-tariff structures, automated
+                        invoice generation, and real-time billing analytics for
+                        utility providers.
+                    </p>
+                    <ul className="list-inside list-disc">
+                      <h1 className="font-semibold text-black">
+                        Key Features:
+                      </h1>
+                      <li>Real-time analytics dashboards</li>
+                      <li>Historical data analysis</li>
+                      <li>Vendor performance tracking</li>
+                      <li>Collection trend analysis</li>
+                      <li>Customer segmentation</li>
+                      <li>Revenue pattern insights</li>
+                      <li>Prepaid/postpaid split views</li>
+                      <li>MD vs. non-MD customer analysis</li>
+                      <li>Feeder-level analysis</li>
+                      <li>Operational intelligence</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <Btn title="Learn More" />
+                </div>
+              </div>
+            )}
+
+            {activeTab === "smartvending" && (
+              <div className="space-y-6">
+                <div className="border-l-4 border-blue-950 pl-6">
+                  <h3 className="mb-2 text-3xl font-bold text-blue-900">
+                    Smart Power Vending System
+                  </h3>
+                  <h4 className="mb-4 text-xl font-semibold italic text-primary">
+                    Comprehensive prepaid electricity vending solution
+                  </h4>
+                </div>
+                
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                  <div className="w-full" data-aos="zoom-out">
+                    <img
+                      src="/images/spv.jpg"
+                      alt="smartvending"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div
+                    className="text-lg leading-relaxed text-gray-700"
+                    data-aos="zoom-in"
+                  >
+                    <p className="text-black">
+                        Comprehensive prepaid electricity vending solution.
+                        Handles complex vending scenarios including prepaid
+                        and postpaid models. 
+                        STS-compliant token generation, multi-channel distribution
+                        (USSD, mobile app, web, POS), real-time transaction
+                        processing, and seamless integration with payment gateways for
+                        utility vendors and distributors.
+                    </p>
+                    <ul className="list-inside list-disc">
+                      <h1 className="font-semibold text-black">
+                        Key Features:
+                      </h1>
+                      <li>Real-time analytics dashboards</li>
+                      <li>Historical data analysis</li>
+                      <li>Vendor performance tracking</li>
+                      <li>Collection trend analysis</li>
+                      <li>Customer segmentation</li>
+                      <li>Revenue pattern insights</li>
+                      <li>Prepaid/postpaid split views</li>
+                      <li>MD vs. non-MD customer analysis</li>
+                      <li>Feeder-level analysis</li>
+                      <li>Operational intelligence</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <Btn title="Learn More" />
+                </div>
+              </div>
+            )}
+
+            {activeTab === "revenueassurance" && (
+              <div className="space-y-6">
+                <div className="border-l-4 border-blue-950 pl-6">
+                  <h3 className="mb-2 text-3xl font-bold text-blue-900">
+                    Revenue Assurance Analytics
+                  </h3>
+                  <h4 className="mb-4 text-xl font-semibold italic text-primary">
+                    Real-time collections, predictive insights, executive
+                    clarity
+                  </h4>
+                </div>
+                
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                  <div className="w-full" data-aos="zoom-out">
+                    <img
+                      src="/images/revenueassurance.jpg"
+                      alt="revenueassurance"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div
+                    className="text-lg leading-relaxed text-gray-700"
+                    data-aos="zoom-in"
+                  >
+                    <p className="text-black">
+                        Comprehensive prepaid electricity vending solution. Enables
+                        STS-compliant token generation, multi-channel distribution
+                        (USSD, mobile app, web, POS), real-time transaction
+                        processing, and seamless integration with payment gateways for
+                        utility vendors and distributors.
+                    </p>
+                    <ul className="list-inside list-disc">
+                      <h1 className="font-semibold text-black">
+                        Key Features:
+                      </h1>
+                      <li>Real-time analytics dashboards</li>
+                      <li>Historical data analysis</li>
+                      <li>Vendor performance tracking</li>
+                      <li>Collection trend analysis</li>
+                      <li>Customer segmentation</li>
+                      <li>Revenue pattern insights</li>
+                      <li>Prepaid/postpaid split views</li>
+                      <li>MD vs. non-MD customer analysis</li>
+                      <li>Feeder-level analysis</li>
+                      <li>Operational intelligence</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <Btn title="Learn More" />
+                </div>
+              </div>
+            )}
+
+            {activeTab === "energytheftmgt" && (
+              <div className="space-y-6">
+                <div className="border-l-4 border-blue-950 pl-6">
+                  <h3 className="mb-2 text-3xl font-bold text-blue-900">
+                    Energy Theft Management
+                  </h3>
+                  <h4 className="mb-4 text-xl font-semibold italic text-primary">
+                    AI-powered energy theft detection leveraging smart meter
+                    data and advanced analytics
+                  </h4>
+                </div>
+                
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                  <div className="w-full" data-aos="zoom-out">
+                    <img
+                      src="/images/energytheftmgt.jpg"
+                      alt="energytheftmgt"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div
+                    className="text-lg leading-relaxed text-gray-700"
+                    data-aos="zoom-in"
+                  >
+                    <p className="text-black">
+                        AI-powered energy theft detection leveraging smart meter data
+                        and advanced analytics. Real-time tamper alerts, consumption
+                        anomaly detection, transformer-level loss analysis, and
+                        automated field inspection workflows to reduce non-technical
+                        losses and protect revenue.
+                    </p>
+                    <ul className="list-inside list-disc">
+                      <h1 className="font-semibold text-black">
+                        Key Features:
+                      </h1>
+                      <li>Real-time analytics dashboards</li>
+                      <li>Historical data analysis</li>
+                      <li>Vendor performance tracking</li>
+                      <li>Collection trend analysis</li>
+                      <li>Customer segmentation</li>
+                      <li>Revenue pattern insights</li>
+                      <li>Prepaid/postpaid split views</li>
+                      <li>MD vs. non-MD customer analysis</li>
+                      <li>Feeder-level analysis</li>
+                      <li>Operational intelligence</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <Btn title="Learn More" />
+                </div>
+              </div>
+            )}
+
+          </div>
+        </Container>
+      </div>
+      <Integration />
+    </div>
   );
 }

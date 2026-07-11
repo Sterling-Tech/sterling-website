@@ -15,7 +15,8 @@ import PerformanceAtScale from './performanceAtScale';
 import RevenueAssurance from './revenueAssurance';
 import GoogleMapCard from './googleMapCard';
 import ReviewsCard from './reviewsCard';
-
+import CompetitiveAdvantage from './competitiveAdvantage';
+import CaseStudies from './caseStudies';
 
 export {
   CollaborateWithUs,
@@ -35,5 +36,6 @@ export {
   RevenueAssurance,
   GoogleMapCard,
   ReviewsCard,
-
+  CompetitiveAdvantage,
+  CaseStudies,
 };

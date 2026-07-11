@@ -2,6 +2,7 @@ import React from "react";
 import { AppLayout } from "@/layouts";
 import { ServiceList } from "@/components/services";
 import { PageHeader, CollaborateWithUs } from "@/components/partials";
+import Integration from "../components/home/integration";
 
 
 export default function Services() {
@@ -15,6 +16,9 @@ export default function Services() {
       />
       
       <ServiceList />
+
+      <Integration />
+      
       <CollaborateWithUs />
     </AppLayout>
   );

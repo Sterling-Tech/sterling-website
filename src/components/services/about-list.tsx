@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Container } from "@/layouts";
 import { aboutList } from "@/static/aboutdata";
-import { AnimateY, PerformanceAtScale, ValuesSection, RevenueAssurance } from "../partials";
+import { AnimateY, PerformanceAtScale, ValuesSection, RevenueAssurance, CompetitiveAdvantage, CaseStudies } from "../partials";
 import CTASection from "../partials/ctaSection";
 import ServicesSection from '../partials/ServicesSection';
 import StatsSection from "../partials/statsSection";
@@ -15,8 +15,9 @@ export default function AboutList() {
       <Container>
         <ValuesSection/>
         <PerformanceAtScale/>
-        <RevenueAssurance/>
         <StatsSection/>
+        <RevenueAssurance/>
+        <CompetitiveAdvantage />
         <ServicesSection/>
         
       </Container>

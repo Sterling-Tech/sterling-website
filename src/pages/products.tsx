@@ -14,7 +14,7 @@ export default function Products() {
         link="/contact"
       />
       <Work/>
-      <CollaborateWithUs />
+      
       <PartnersAndClients />
     </AppLayout>
   );
